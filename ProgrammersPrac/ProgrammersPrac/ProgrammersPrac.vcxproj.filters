@@ -23,5 +23,8 @@
     <ClCompile Include="Basic_Coding_Training.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Lv1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
