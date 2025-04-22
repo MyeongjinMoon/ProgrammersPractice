@@ -4,16 +4,21 @@ void SumOfNumbers();
 void CalculateAverage();
 void SumOfSection();
 void SumOfSection2();
-void RestOfSum();
+void SumConsecutiveNumber();
+void OrderOfJumong();
 
-int main()
-{
-	//SumOfNumbers();
-	//CalculateAverage();
-	//SumOfSection();
-	//SumOfSection2();
-	RestOfSum();
-}
+//int main()
+//{
+//	ios::sync_with_stdio(false);
+//	cin.tie(NULL); cout.tie(NULL);
+//
+//	//SumOfNumbers();
+//	//CalculateAverage();
+//	//SumOfSection();
+//	//SumOfSection2();
+//	//SumConsecutiveNumber();
+//	//OrderOfJumong();
+//}
 
 // ----- SumOfNumbers -----
 void SumOfNumbers()
@@ -60,9 +65,6 @@ void CalculateAverage()
 // ----- SumOfSection -----
 void SumOfSection()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(NULL); cout.tie(NULL);
-
 	int n, k;
 
 	vector<int> array;
@@ -96,9 +98,6 @@ void SumOfSection()
 // ----- SumOfSection2 -----
 void SumOfSection2()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(NULL); cout.tie(NULL);
-
 	int n, k;
 	cin >> n >> k;
 
@@ -132,8 +131,66 @@ void SumOfSection2()
 	}
 }
 
-// ----- RestOfSum -----
-void RestOfSum()
+// ----- SumConsecutiveNumber -----
+void SumConsecutiveNumber()
 {
+	int n, answer = 0;
+	cin >> n;
 
+	int min = 0, max = 0;
+
+	int result = 0;
+	while (max <= n)
+	{
+		if (result < n)
+		{
+			max++;
+			result += max;
+		}
+		else if (result > n)
+		{
+			min++;
+			result -= min;
+		}
+		else
+		{
+			answer++;
+
+			max++;
+			result += max;
+		}
+	}
+	cout << answer;
+}
+
+// ----- OrderOfJumong -----
+void OrderOfJumong()
+{
+	int n, k, answer = 0;
+	cin >> n >> k;
+
+	vector<int> materials(n);
+	for (int i = 0; i < n; i++)
+		cin >> materials[i];
+	
+	sort(materials.begin(), materials.end());
+
+	int start = 0, end = n - 1;
+
+	while (start < end)
+	{
+		int result = materials[start] + materials[end];
+		if (result > k)
+			end--;
+		else if (result < k)
+			start++;
+		else
+		{
+			answer++;
+			end--;
+			start++;
+		}
+	}
+
+	cout << answer;
 }

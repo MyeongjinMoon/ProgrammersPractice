@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\BackJoon">
+      <UniqueIdentifier>{265526bc-b72c-46fd-8c45-66772ac55045}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Programmers">
+      <UniqueIdentifier>{c3e339a3-e6a3-475a-af85-a46fda9142de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">
@@ -20,11 +26,17 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Basic_Coding_Training.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="Silver.cpp">
+      <Filter>소스 파일\BackJoon</Filter>
     </ClCompile>
     <ClCompile Include="Lv1.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\Programmers</Filter>
+    </ClCompile>
+    <ClCompile Include="Basic_Coding_Training.cpp">
+      <Filter>소스 파일\Programmers</Filter>
+    </ClCompile>
+    <ClCompile Include="Gold.cpp">
+      <Filter>소스 파일\BackJoon</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

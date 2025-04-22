@@ -131,7 +131,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Basic_Coding_Training.cpp" />
+    <ClCompile Include="Gold.cpp" />
     <ClCompile Include="Lv1.cpp" />
+    <ClCompile Include="Silver.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
