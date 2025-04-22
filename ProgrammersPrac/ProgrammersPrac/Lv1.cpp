@@ -6,14 +6,14 @@ void VideoPlayer();
 void Bill_Folding();
 void Park();
 
-int main()
-{
-	//Flexible_WorkSystem();
-	//TakeOut_Box();
-	//VideoPlayer();
-	//Bill_Folding();
-	Park();
-}
+//int main()
+//{
+//	//Flexible_WorkSystem();
+//	//TakeOut_Box();
+//	//VideoPlayer();
+//	//Bill_Folding();
+//	//Park();
+//}
 
 /*
 700 800 1100
@@ -286,7 +286,7 @@ void Park()
 		for (int j = 0; j < park[i].size(); j++)
 			cin >> park[i][j];
 
-	for (int i = 0; i < park.size(0); i++)
+	for (int i = 0; i < park.size(); i++)
 		for (int j = 0; j < park[i].size(); j++)
 		{
 
