@@ -8,19 +8,19 @@ void SumConsecutiveNumber();
 void OrderOfJumong();
 void DNA_Password();
 
-int main()
-{
-	ios::sync_with_stdio(false);
-	cin.tie(NULL); cout.tie(NULL);
-
-	//SumOfNumbers();
-	//CalculateAverage();
-	//SumOfSection();
-	//SumOfSection2();
-	//SumConsecutiveNumber();
-	//OrderOfJumong();
-	DNA_Password();
-}
+//int main()
+//{
+//	ios::sync_with_stdio(false);
+//	cin.tie(NULL); cout.tie(NULL);
+//
+//	//SumOfNumbers();
+//	//CalculateAverage();
+//	//SumOfSection();
+//	//SumOfSection2();
+//	//SumConsecutiveNumber();
+//	//OrderOfJumong();
+//	//DNA_Password();
+//}
 
 // ----- SumOfNumbers -----
 void SumOfNumbers()
@@ -199,12 +199,13 @@ void OrderOfJumong()
 
 // ----- DNA_Password -----
 bool IsInDNA(char password, int& index);
+bool IsDNAPassword(int*, int*);
 void DNA_Password()
 {
 	string dna_Str;
 	int* dna = (int*)calloc(sizeof(int), 4);
 	int* _dna = (int*)calloc(sizeof(int), 4);
-	int s, p;
+	int s, p, result = 0;
 	cin >> s >> p >> dna_Str;
 
 	for (int i = 0; i < 4; i++)
@@ -214,10 +215,27 @@ void DNA_Password()
 	{
 		int index = 0;
 		if (IsInDNA(dna_Str[i], index))
-		{
 			_dna[index]++;
-		}
 	}
+	if (IsDNAPassword(_dna, dna))
+		result++;
+
+	int start = 0, end = p;
+	for (int i = 0; i < s - p; i++)
+	{
+		int index = 0;
+		if (IsInDNA(dna_Str[start], index))
+			_dna[index]--;
+		if (IsInDNA(dna_Str[end], index))
+			_dna[index]++;
+
+		if (IsDNAPassword(_dna, dna))
+			result++;
+
+		start++; end++;
+	}
+
+	cout << result;
 }
 bool IsInDNA(char password, int& index)
 {
@@ -238,4 +256,11 @@ bool IsInDNA(char password, int& index)
 	default:
 		return false;
 	}
+}
+bool IsDNAPassword(int* _dnaPassword, int* dnaPassword)
+{
+	for (int i = 0; i < 4; i++)
+		if (_dnaPassword[i] < dnaPassword[i])
+			return false;
+	return true;
 }
