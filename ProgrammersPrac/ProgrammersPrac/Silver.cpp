@@ -7,6 +7,7 @@ void SumOfSection2();
 void SumConsecutiveNumber();
 void OrderOfJumong();
 void DNA_Password();
+void MakeSequence();
 
 //int main()
 //{
@@ -20,6 +21,7 @@ void DNA_Password();
 //	//SumConsecutiveNumber();
 //	//OrderOfJumong();
 //	//DNA_Password();
+//	MakeSequence();
 //}
 
 // ----- SumOfNumbers -----
@@ -263,4 +265,62 @@ bool IsDNAPassword(int* _dnaPassword, int* dnaPassword)
 		if (_dnaPassword[i] < dnaPassword[i])
 			return false;
 	return true;
+}
+
+// ----- MakeSequence -----
+struct Stack
+{
+	int* stack;
+	int topIndex = -1;
+};
+int CheckTop(Stack* myStack);
+void Push_Stack(Stack*, int);
+int Pop_Stack(Stack*);
+void MakeSequence()
+{
+	int n;
+	cin >> n;
+
+	Stack myStack;
+	int sequenceValue = 1;
+	myStack.stack = (int*)calloc(sizeof(int), n);
+	int* values = (int*)calloc(sizeof(int), n);
+	vector<char> result;
+	
+	for (int i = 0; i < n; i++)
+		cin >> values[i];
+	for (int i = 0; i < n; i++)
+	{
+		while (CheckTop(&myStack) < values[i])
+		{
+			Push_Stack(&myStack, sequenceValue++);
+			result.push_back('+');
+		}
+		int popValue;
+		if (popValue = Pop_Stack(&myStack) == values[i])
+			result.push_back('-');
+		else
+		{
+			cout << "NO";
+			return ;
+		}
+	}
+	for (int i = 0; i < result.size(); i++)
+		cout << result[i] << '\n';
+}
+int CheckTop(Stack* myStack)
+{
+	if (myStack->topIndex < 0)
+		return NULL;
+	return myStack->stack[myStack->topIndex];
+}
+void Push_Stack(Stack* myStack, int value)
+{
+	myStack->stack[++myStack->topIndex] = value;
+}
+int Pop_Stack(Stack* myStack)
+{
+	if (myStack->topIndex < 0)
+		return NULL;
+	return myStack->stack[myStack->topIndex--];
 }
